@@ -112,9 +112,13 @@ fun MainView(actionBarFun: topBarFun = { EmptyComposable() }) {
         ) {
             padding ->
             Box(modifier = Modifier.padding(padding)) {
+                if (showAddDialog.value) {
 
+                }
+                when (selectedIndex.value) {
+                    0-> TimeZoneScreen(currentTimeZoneStrings)
+                }
             }
         }
     }
-
 }
