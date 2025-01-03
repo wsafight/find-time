@@ -1,4 +1,4 @@
-package com.wsafight.findtime.android.ui
+package com.wsafight.compose.ui
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition

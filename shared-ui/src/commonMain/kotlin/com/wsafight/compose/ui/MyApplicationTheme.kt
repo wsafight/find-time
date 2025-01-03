@@ -1,4 +1,4 @@
-package com.wsafight.findtime.android
+package com.wsafight.compose.ui
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape

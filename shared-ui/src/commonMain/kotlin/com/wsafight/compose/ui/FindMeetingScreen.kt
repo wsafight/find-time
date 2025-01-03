@@ -1,4 +1,4 @@
-package com.kodeco.findtime.android.ui
+package com.wsafight.compose.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -29,9 +29,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.wsafight.findtime.TimeZoneHelper
 import com.wsafight.findtime.TimeZoneHelperImpl
-import com.wsafight.findtime.android.ui.MeetingDialog
-import com.wsafight.findtime.android.ui.NumberTimeCard
-import com.wsafight.findtime.android.ui.isSelected
 
 @Composable
 fun FindMeetingScreen(

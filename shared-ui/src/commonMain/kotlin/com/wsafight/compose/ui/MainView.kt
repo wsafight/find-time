@@ -1,4 +1,4 @@
-package com.wsafight.findtime.android.ui
+package com.wsafight.compose.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -24,8 +24,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import com.kodeco.findtime.android.ui.FindMeetingScreen
-import com.wsafight.findtime.android.MyApplicationTheme
 
 sealed class Screen(val title: String) {
     object TimeZonesScreen: Screen("Timezones")

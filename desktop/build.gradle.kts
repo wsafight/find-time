@@ -25,7 +25,7 @@ kotlin {
                 api(compose.materialIconsExtended)
 
                 implementation(project(":shared"))
-//                implementation(project(":shared-ui"))
+                implementation(project(":shared-ui"))
             }
         }
     }
