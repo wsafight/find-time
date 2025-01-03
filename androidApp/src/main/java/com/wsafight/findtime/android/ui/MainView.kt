@@ -113,10 +113,23 @@ fun MainView(actionBarFun: topBarFun = { EmptyComposable() }) {
             padding ->
             Box(modifier = Modifier.padding(padding)) {
                 if (showAddDialog.value) {
-
+                    AddTimeZoneDialog(
+                        onAdd = { newTimeZones ->
+                            showAddDialog.value = false
+                            for (zone in newTimeZones) {
+                                if (!currentTimeZoneStrings.contains(zone)) {
+                                    currentTimeZoneStrings.add(zone)
+                                }
+                            }
+                        },
+                        onDismiss = {
+                            showAddDialog.value = false
+                        }
+                    )
                 }
                 when (selectedIndex.value) {
-                    0-> TimeZoneScreen(currentTimeZoneStrings)
+                    0 -> TimeZoneScreen(currentTimeZoneStrings)
+                    else -> null
                 }
             }
         }

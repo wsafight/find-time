@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun <T>  AnimatedSwipeDismiss(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     item: T,
     background: @Composable (dismissedValue: DismissValue) -> Unit,
     content: @Composable (dismissedValue: DismissValue) -> Unit,
@@ -56,3 +56,4 @@ fun <T>  AnimatedSwipeDismiss(
     }
 
 }
+

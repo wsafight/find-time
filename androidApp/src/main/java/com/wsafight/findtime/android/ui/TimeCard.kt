@@ -63,7 +63,7 @@ fun TimeCard(timeZone: String, hours: Double, time: String, date: String) {
                                 )
                             )
                             Text(
-                                "hours from local",
+                                " hours from local",
                                 style = TextStyle(
                                     color = Color.Black,
                                     fontSize = 14.sp

@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import com.wsafight.findtime.TimeZoneHelperImpl
 import kotlinx.coroutines.delay
 
+// 一分钟
 const val timeMillis = 1000 * 60L
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -101,11 +102,8 @@ fun TimeZoneScreen(
                         if (currentTimeZoneStrings.contains(zone)) {
                             currentTimeZoneStrings.remove(zone)
                         }
+                        println("currentTimeZoneStrings is ${currentTimeZoneStrings.toList()}")
                     },
-                    modifier = TODO(),
-                    directions = TODO(),
-                    enter = TODO(),
-                    exit = TODO(),
                 )
             }
         }
