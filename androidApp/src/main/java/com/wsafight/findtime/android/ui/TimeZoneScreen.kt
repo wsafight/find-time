@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
@@ -69,7 +68,7 @@ fun TimeZoneScreen(
                 val timezoneString = currentTimeZoneStrings[index]
                 AnimatedSwipeDismiss(
                     item = timezoneString,
-                    background = { _ ->
+                    background = {
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()

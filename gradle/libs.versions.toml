@@ -6,6 +6,7 @@ compose-material3 = "1.3.1"
 androidx-activityCompose = "1.9.3"
 kotlinxDateTime = "0.6.1"
 napier = "2.7.1"
+composePlugin = "1.7.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -27,3 +28,4 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+composePlugin = { id = "org.jetbrains.compose", version.ref = "composePlugin" }

@@ -1,8 +1,10 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
+
 plugins {
-    kotlin("multiplatform")
+    alias(libs.plugins.composePlugin)
     alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.compose.compiler)
 }
 
 kotlin {
@@ -23,7 +25,7 @@ kotlin {
                 api(compose.materialIconsExtended)
 
                 implementation(project(":shared"))
-                implementation(project(":shared-ui"))
+//                implementation(project(":shared-ui"))
             }
         }
     }

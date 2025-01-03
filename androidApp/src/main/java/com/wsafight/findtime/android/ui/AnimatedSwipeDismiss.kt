@@ -6,54 +6,60 @@ import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
-import androidx.compose.material3.DismissDirection
-import androidx.compose.material3.DismissValue
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.SwipeToDismiss
-import androidx.compose.material3.rememberDismissState
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.material3.SwipeToDismissBox
+import androidx.compose.material3.SwipeToDismissBoxValue
+import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun <T>  AnimatedSwipeDismiss(
     modifier: Modifier = Modifier,
     item: T,
-    background: @Composable (dismissedValue: DismissValue) -> Unit,
-    content: @Composable (dismissedValue: DismissValue) -> Unit,
-    directions: Set<DismissDirection> = setOf(DismissDirection.EndToStart),
+    background: @Composable RowScope.()  -> Unit,
+    content: @Composable RowScope.() -> Unit,
+    onDismiss: (T) -> Unit,
     enter: EnterTransition = expandVertically(),
     exit: ExitTransition = shrinkVertically(
         animationSpec = tween(
             durationMillis = 500,
         )
     ),
-    onDismiss: (T) -> Unit
 ) {
-    val dismissState = rememberDismissState(confirmValueChange = {
-        dismissValue ->
-        if (dismissValue == DismissValue.DismissedToStart) {
-            onDismiss(item)
-        }
-        true
-    })
 
-    val isDismissed = dismissState.isDismissed(DismissDirection.EndToStart)
+    val visible = remember { mutableStateOf(true) }
+
+    val swipeState = rememberSwipeToDismissBoxState(
+        confirmValueChange = {
+            if (it == SwipeToDismissBoxValue.EndToStart) {
+                visible.value = false
+                onDismiss(item)
+            }
+            return@rememberSwipeToDismissBoxState true
+        }
+    )
 
     AnimatedVisibility(
         modifier = modifier,
-        visible = !isDismissed,
+        visible = visible.value,
         enter = enter,
         exit = exit
     ) {
-        SwipeToDismiss(
+        SwipeToDismissBox(
+            enableDismissFromEndToStart = true,
+            enableDismissFromStartToEnd = false,
+            state = swipeState,
+            backgroundContent = background,
             modifier = modifier,
-            state = dismissState,
-            directions = directions,
-            background = { background(dismissState.currentValue) },
-            dismissContent = { content(dismissState.currentValue) }
+            gesturesEnabled = true,
+            content = content
         )
     }
 
+
 }
+
 
