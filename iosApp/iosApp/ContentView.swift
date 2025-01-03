@@ -2,15 +2,24 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-	let greet = Greeting().greet()
-
-	var body: some View {
-		Text(greet)
-	}
+    @StateObject private var timezoneItems = TimeZoneItems();
+    
+    var body: some View {
+        TabView {
+            TimeZoneView()
+                .tabItem {
+                    Label("Time Zones", systemImage: "network")
+                }
+            FindMeeting()
+                .tabItem {
+                    Label("Find Meeting", systemImage: "clock")
+                }
+        }
+        .accentColor(Color.white)
+        .environmentObject(timezoneItems)
+    }
 }
 
-struct ContentView_Previews: PreviewProvider {
-	static var previews: some View {
-		ContentView()
-	}
+#Preview {
+    ContentView()
 }
