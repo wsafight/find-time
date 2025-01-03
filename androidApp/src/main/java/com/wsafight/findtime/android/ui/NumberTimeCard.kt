@@ -40,10 +40,13 @@ fun NumberTimeCard(
                 style = MaterialTheme.typography.bodySmall.copy(color = Color.Black)
             )
             Spacer(modifier = Modifier.size(16.dp))
-//            NumberPicker(
-//                hour = hour,
-//                range
-//            )
+            NumberPicker(
+                hour = hour,
+                range = IntRange(0, 23),
+                onStateChanged = {
+                    hour.value = it
+                }
+            )
         }
     }
 }

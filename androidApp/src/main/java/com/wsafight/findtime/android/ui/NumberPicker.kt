@@ -7,6 +7,7 @@ import androidx.compose.animation.core.DecayAnimationSpec
 import androidx.compose.animation.core.calculateTargetValue
 import androidx.compose.animation.core.exponentialDecay
 import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
 import androidx.compose.foundation.layout.Box
@@ -16,17 +17,22 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalTextStyle
+import androidx.compose.material3.ProvideTextStyle
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.IntOffset
@@ -117,10 +123,54 @@ fun NumberPicker(
                 .align(Alignment.CenterHorizontally)
                 .offset { IntOffset(x = 0, y = coercedAnimatedOffset.roundToInt()) }
         ) {
-
+            val baseLabelModifier = Modifier.align(Alignment.Center)
+            ProvideTextStyle(textStyle) {
+                Label(
+                    text = (animatedStateValue - 1).toString(),
+                    modifier = baseLabelModifier
+                        .offset(y = -halvedNumbersColumnHeight)
+                        .alpha(coercedAnimatedOffset / halvedNumbersColumnHeightPx)
+                )
+                Label(
+                    text = animatedStateValue.toString(),
+                    modifier = baseLabelModifier
+                        .alpha(1 - abs(coercedAnimatedOffset) / halvedNumbersColumnHeightPx)
+                )
+                Label(
+                    text = (animatedStateValue + 1).toString(),
+                    modifier = baseLabelModifier
+                        .offset(y = halvedNumbersColumnHeight)
+                        .alpha(-coercedAnimatedOffset / halvedNumbersColumnHeightPx)
+                )
+            }
+        }
+        Spacer(modifier.height(spacing))
+        IconButton(
+            onClick = {
+                hour.value--
+            }
+        ) {
+            Icon(
+                Icons.Filled.KeyboardArrowDown,
+                contentDescription = "Down",
+                tint = Color.Black
+            )
         }
 
     }
+}
+
+@Composable
+private fun Label(text: String, modifier: Modifier) {
+    Text(
+        text = text,
+        color = Color.Black,
+        modifier = modifier.pointerInput(Unit) {
+            detectTapGestures(onLongPress = {
+                // FIXME: Empty to disable text selection
+            })
+        }
+    )
 }
 
 private suspend fun Animatable<Float, AnimationVector1D>.fling(

@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import com.kodeco.findtime.android.ui.FindMeetingScreen
 import com.wsafight.findtime.android.MyApplicationTheme
 
 sealed class Screen(val title: String) {
@@ -129,7 +130,7 @@ fun MainView(actionBarFun: topBarFun = { EmptyComposable() }) {
                 }
                 when (selectedIndex.value) {
                     0 -> TimeZoneScreen(currentTimeZoneStrings)
-                    else -> null
+                    else -> FindMeetingScreen(currentTimeZoneStrings)
                 }
             }
         }
