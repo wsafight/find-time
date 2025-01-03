@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0120C52F2D27BA4800B6F54C /* FindMeeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120C52E2D27BA4800B6F54C /* FindMeeting.swift */; };
+		0120C5312D27C08300B6F54C /* HourSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120C5302D27C08300B6F54C /* HourSheet.swift */; };
 		01406D462D27962600E7753D /* TimeZoneItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01406D452D27962200E7753D /* TimeZoneItems.swift */; };
 		01406D482D27971900E7753D /* TimeZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01406D472D27971900E7753D /* TimeZoneView.swift */; };
 		01406D4A2D27976F00E7753D /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01406D492D27976F00E7753D /* CardModifier.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		0120C52E2D27BA4800B6F54C /* FindMeeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMeeting.swift; sourceTree = "<group>"; };
+		0120C5302D27C08300B6F54C /* HourSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourSheet.swift; sourceTree = "<group>"; };
 		01406D452D27962200E7753D /* TimeZoneItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneItems.swift; sourceTree = "<group>"; };
 		01406D472D27971900E7753D /* TimeZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneView.swift; sourceTree = "<group>"; };
 		01406D492D27976F00E7753D /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				01406D562D27AF0800E7753D /* TimeZoneDialog.swift */,
 				01406D582D27B36000E7753D /* Utils.swift */,
 				0120C52E2D27BA4800B6F54C /* FindMeeting.swift */,
+				0120C5302D27C08300B6F54C /* HourSheet.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				01406D482D27971900E7753D /* TimeZoneView.swift in Sources */,
 				01406D4A2D27976F00E7753D /* CardModifier.swift in Sources */,
+				0120C5312D27C08300B6F54C /* HourSheet.swift in Sources */,
 				0120C52F2D27BA4800B6F54C /* FindMeeting.swift in Sources */,
 				01406D592D27B36000E7753D /* Utils.swift in Sources */,
 			);
